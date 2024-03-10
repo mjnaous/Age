@@ -38,7 +38,7 @@
       const secondsInAnHour = secondsInAMinute * 60;
       const secondsInADay = secondsInAnHour * 24;
       const secondsInAMonth = secondsInADay * 30; // Approximate
-      const secondsInAYear = secondsInADay * 365; // Approximate
+      const secondsInAYear = secondsInADay * 365.25; // Approximate
 
       const years = Math.floor(ageInSeconds / secondsInAYear);
       const months = Math.floor((ageInSeconds % secondsInAYear) / secondsInAMonth);
