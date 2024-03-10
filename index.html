@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mjnaous' age</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-size: 90px;
+      text-align: center;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>My Age:</h1>
+  <p id="years">0 years</p>
+  <p id="months">0 months</p>
+  <p id="days">0 days</p>
+  <p id="hours">0 hours</p>
+  <p id="minutes">0 minutes</p>
+  <p id="seconds">0 seconds</p>
+
+  <script>
+    function updateAge() {
+      // Set your birthdate here in the format 'YYYY-MM-DD'
+      const birthdate = new Date('2009-04-08');
+      const currentDate = new Date();
+
+      // Calculate the time difference
+      const ageInMilliseconds = currentDate - birthdate;
+      const ageInSeconds = Math.floor(ageInMilliseconds / 1000);
+
+      const secondsInAMinute = 60;
+      const secondsInAnHour = secondsInAMinute * 60;
+      const secondsInADay = secondsInAnHour * 24;
+      const secondsInAMonth = secondsInADay * 30; // Approximate
+      const secondsInAYear = secondsInADay * 365; // Approximate
+
+      const years = Math.floor(ageInSeconds / secondsInAYear);
+      const months = Math.floor((ageInSeconds % secondsInAYear) / secondsInAMonth);
+      const days = Math.floor((ageInSeconds % secondsInAMonth) / secondsInADay);
+      const hours = Math.floor((ageInSeconds % secondsInADay) / secondsInAnHour);
+      const minutes = Math.floor((ageInSeconds % secondsInAnHour) / secondsInAMinute);
+      const seconds = ageInSeconds % secondsInAMinute;
+
+      document.getElementById('years').textContent = `${years} years`;
+      document.getElementById('months').textContent = `${months} months`;
+      document.getElementById('days').textContent = `${days} days`;
+      document.getElementById('hours').textContent = `${hours} hours`;
+      document.getElementById('minutes').textContent = `${minutes} minutes`;
+      document.getElementById('seconds').textContent = `${seconds} seconds`;
+    }
+
+    updateAge();
+    setInterval(updateAge, 1000);
+  </script>
+</body>
+</html>
